@@ -7,6 +7,15 @@
     <version>0.0.1-SNAPSHOT</version>
     <name>spring-boot-starter-dynamic-search</name>
     <description>spring-boot-starter-dynamic-search</description>
+
+    <distributionManagement>
+        <repository>
+            <id>github</id>
+            <name>GitHub NickNgn Apache Maven Packages</name>
+            <url>https://maven.pkg.github.com/nickngn/spring-boot-starter-dynamic-search.git</url>
+        </repository>
+    </distributionManagement>
+
     <properties>
         <java.version>17</java.version>
     </properties>
