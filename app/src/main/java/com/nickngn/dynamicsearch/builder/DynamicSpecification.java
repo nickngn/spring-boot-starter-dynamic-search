@@ -30,7 +30,6 @@ import jakarta.persistence.criteria.CriteriaQuery;
 import jakarta.persistence.criteria.Predicate;
 import jakarta.persistence.criteria.Root;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.boot.json.GsonJsonParser;
 import org.springframework.data.jpa.domain.Specification;
 
 import java.util.List;
@@ -38,8 +37,6 @@ import java.util.List;
 @Slf4j
 @SuppressWarnings("unused")
 public class DynamicSpecification<T> implements Specification<T> {
-
-    private static final GsonJsonParser GSON = new GsonJsonParser();
 
     private final Criteria criteria;
 
@@ -177,11 +174,10 @@ public class DynamicSpecification<T> implements Specification<T> {
         return criteria.value() != null ? criteria.value().toString() : null;
     }
 
-    protected List<Object> arrVal() {
-        try {
-            return GSON.parseList(strVal());
-        } catch (Exception e) {
-            throw new InvalidCriteriaException(String.format("Can't parse value to array. Value: '%s'", strVal()));
+    protected List<?> arrVal() {
+        if (criteria.value() instanceof List<?> val) {
+            return val;
         }
+        return List.of(criteria.value());
     }
 }

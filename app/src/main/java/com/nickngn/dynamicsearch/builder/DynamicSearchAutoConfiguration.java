@@ -15,7 +15,7 @@
  *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NON INFRINGEMENT. IN NO EVENT SHALL THE
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
  * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
@@ -24,33 +24,16 @@
 
 package com.nickngn.dynamicsearch.builder;
 
-import com.nickngn.dynamicsearch.Criteria;
-import org.springframework.data.jpa.domain.Specification;
-import org.springframework.util.CollectionUtils;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 
-import java.util.List;
+@Configuration
+public class DynamicSearchAutoConfiguration {
 
-public final class SpecificationBuilder<T> implements ConditionalBuilder<Specification<T>> {
-
-    @Override
-    public Specification<T> build(List<Criteria> criteriaList) {
-        if(CollectionUtils.isEmpty(criteriaList)) {
-            return null;
-        }
-
-        Specification<T> result = Specification.where(newSpec(criteriaList.get(0)));
-        for (int idx = 1; idx < criteriaList.size(); idx++){
-            Criteria criteria = criteriaList.get(idx);
-            result =  criteria.isOr()
-                    ? Specification.where(result).or(newSpec(criteria))
-                    : Specification.where(result).and(
-                    newSpec(criteria));
-        }
-        return result;
+    @Bean
+    @ConditionalOnMissingBean
+    public SpecificationBuilder<?> specificationBuilder() {
+        return new SpecificationBuilder<>();
     }
-
-    private DynamicSpecification<T> newSpec(Criteria criteria) {
-        return new DynamicSpecification<>(criteria);
-    }
-
 }

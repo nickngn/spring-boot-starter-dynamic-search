@@ -24,35 +24,49 @@
 
 package com.nickngn.dynamicsearch;
 
-public enum Operation {
-    CONTAINS, DOES_NOT_CONTAIN, EQUAL, NOT_EQUAL, BEGINS_WITH,
-    DOES_NOT_BEGIN_WITH, ENDS_WITH, DOES_NOT_END_WITH,
-    NUL, NOT_NULL, GREATER_THAN, GREATER_THAN_EQUAL, LESS_THAN,
-    LESS_THAN_EQUAL, IN, NOT_IN;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.Getter;
+import lombok.Setter;
+import org.springframework.data.domain.Pageable;
 
-    public static final String[] SIMPLE_OPERATION_SET = {
-            "cn", "nc", "eq", "ne", "bw", "bn", "ew",
-            "en", "nu", "nn", "gt", "ge", "lt", "le" };
+import java.util.ArrayList;
+import java.util.List;
+import java.util.function.Supplier;
 
-    public static Operation getSimpleOperation(final String input) {
-        return switch (input) {
-            case "cn" -> CONTAINS;
-            case "nc" -> DOES_NOT_CONTAIN;
-            case "eq" -> EQUAL;
-            case "ne" -> NOT_EQUAL;
-            case "bw" -> BEGINS_WITH;
-            case "bn" -> DOES_NOT_BEGIN_WITH;
-            case "ew" -> ENDS_WITH;
-            case "en" -> DOES_NOT_END_WITH;
-            case "nu" -> NUL;
-            case "nn" -> NOT_NULL;
-            case "gt" -> GREATER_THAN;
-            case "ge" -> GREATER_THAN_EQUAL;
-            case "lt" -> LESS_THAN;
-            case "le" -> LESS_THAN_EQUAL;
-            case "in" -> IN;
-            case "ni" -> NOT_IN;
-            default -> null;
-        };
+@Getter
+@Setter
+public abstract class SearchTemplate {
+
+    protected List<Criteria> criteria;
+    protected Pageable pageable;
+
+    @JsonIgnore
+    public abstract Class<?> getReferenceClass();
+    @JsonIgnore
+    public abstract ConditionList customValidate(ConditionList conditionList);
+
+    @Getter
+    @Setter
+    public static class CustomCondition {
+        private Supplier<Boolean> condition;
+        private String errorMessage;
+    }
+
+    @Getter
+    @Setter
+    public static class ConditionList {
+        private List<CustomCondition> conditions = new ArrayList<>();
+
+        public ConditionList add(CustomCondition condition) {
+            conditions.add(condition);
+            return this;
+        }
+    }
+
+    public Pageable getPageable() {
+        if (pageable == null) {
+            return Pageable.unpaged();
+        }
+        return pageable;
     }
 }

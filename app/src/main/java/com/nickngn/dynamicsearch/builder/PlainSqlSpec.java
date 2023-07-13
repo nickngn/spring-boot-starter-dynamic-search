@@ -162,23 +162,24 @@ public class PlainSqlSpec {
     }
 
     protected String onNotIn() {
-        return make("not in", strVal());
+        List<String> list = arrVal().stream().map(val -> "'" + val + "'").toList();
+        return criteria.key() + " not in " + " (" + String.join(",", list) + ")";
     }
 
     protected String onIn() {
-        return make("in", strVal());
+        List<String> list = arrVal().stream().map(val -> "'" + val + "'").toList();
+        return criteria.key() + " in " + " (" + String.join(",", list) + ")";
     }
 
     protected String strVal() {
         return criteria.value() != null ? criteria.value().toString() : null;
     }
 
-    protected List<Object> arrVal() {
-        try {
-            return GSON.parseList(strVal());
-        } catch (Exception e) {
-            throw new InvalidCriteriaException(String.format("Can't parse value to array. Value: '%s'", strVal()));
+    protected List<?> arrVal() {
+        if (criteria.value() instanceof List<?> val) {
+            return val;
         }
+        return List.of(criteria.value());
     }
 
     private String make(String operation, String value) {
