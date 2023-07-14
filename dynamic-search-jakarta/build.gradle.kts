@@ -1,5 +1,5 @@
 plugins {
-	java
+	`java-library`
 	id("org.springframework.boot") version "3.1.1"
 	id("org.sonarqube") version "4.2.1.3168"
 }
@@ -23,7 +23,7 @@ configurations {
 }
 
 repositories {
-//	mavenLocal()
+	mavenLocal()
 	mavenCentral()
 }
 

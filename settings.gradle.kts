@@ -1,3 +1,3 @@
 rootProject.name = "spring-boot-starter-dynamic-search"
-include("app")
+include("dynamic-search-jakarta")
 include("spring-boot-test")
