@@ -10,7 +10,7 @@ sonar {
 	properties {
 		property("sonar.projectKey", "nickngn_spring-boot-starter-dynamic-search")
 		property("sonar.organization", "afarmerlearntocode")
-		property("sonar.host", "https://sonarcloud.io")
+		property("sonar.host.url", "https://sonarcloud.io")
 	}
 }
 
