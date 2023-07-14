@@ -24,7 +24,7 @@
 
 package com.nickngn.dynamicsearch;
 
-public final class SearchCriteria extends SearchTemplate {
+public final class BaseSearchCriteria extends SearchTemplate {
 
     @Override
     public Class<?> getReferenceClass() {
