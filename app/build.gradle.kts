@@ -23,7 +23,7 @@ configurations {
 }
 
 repositories {
-	mavenLocal()
+//	mavenLocal()
 	mavenCentral()
 }
 
