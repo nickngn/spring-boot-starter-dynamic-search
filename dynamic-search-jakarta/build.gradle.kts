@@ -13,6 +13,11 @@ sonar {
 		property("sonar.host")
 	}
 }
+
+tasks.bootJar {
+	enabled = false
+}
+
 group = "com.nickngn"
 version = "0.0.1-SNAPSHOT"
 
