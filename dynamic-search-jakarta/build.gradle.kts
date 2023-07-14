@@ -8,9 +8,9 @@ apply(plugin = "io.spring.dependency-management")
 
 sonar {
 	properties {
-		property("sonar.projectKey")
-		property("sonar.organization")
-		property("sonar.host")
+		property("sonar.projectKey", "nickngn_spring-boot-starter-dynamic-search")
+		property("sonar.organization", "afarmerlearntocode")
+		property("sonar.host", "https://sonarcloud.io")
 	}
 }
 
