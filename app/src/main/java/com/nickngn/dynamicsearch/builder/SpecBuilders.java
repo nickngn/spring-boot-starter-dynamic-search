@@ -24,33 +24,20 @@
 
 package com.nickngn.dynamicsearch.builder;
 
-import com.nickngn.dynamicsearch.Criteria;
-import org.springframework.data.jpa.domain.Specification;
-import org.springframework.util.CollectionUtils;
+import java.util.concurrent.ConcurrentHashMap;
 
-import java.util.List;
+public final class SpecBuilders {
 
-public final class SpecificationBuilder<T> implements ConditionalBuilder<Specification<T>> {
+    private static final ConcurrentHashMap<Class<?>, SpecBuilder<?>> BUILDER_MAP = new ConcurrentHashMap<>();
 
-    @Override
-    public Specification<T> build(List<Criteria> criteriaList) {
-        if(CollectionUtils.isEmpty(criteriaList)) {
-            return Specification.anyOf();
+    @SuppressWarnings("unchecked")
+    public static <T> SpecBuilder<T> getInstance(Class<T> klass) {
+        if (BUILDER_MAP.containsKey(klass)) {
+            return (SpecBuilder<T>) BUILDER_MAP.get(klass);
         }
-
-        Specification<T> result = Specification.where(newSpec(criteriaList.get(0)));
-        for (int idx = 1; idx < criteriaList.size(); idx++){
-            Criteria criteria = criteriaList.get(idx);
-            result =  criteria.isOr()
-                    ? Specification.where(result).or(newSpec(criteria))
-                    : Specification.where(result).and(
-                    newSpec(criteria));
-        }
-        return result;
-    }
-
-    private DynamicSpecification<T> newSpec(Criteria criteria) {
-        return new DynamicSpecification<>(criteria);
+        SpecBuilder<T> specBuilder = new SpecBuilder<>();
+        BUILDER_MAP.put(klass, specBuilder);
+        return specBuilder;
     }
 
 }

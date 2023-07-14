@@ -24,16 +24,32 @@
 
 package com.nickngn.dynamicsearch.builder;
 
-import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
+import com.nickngn.dynamicsearch.Criteria;
+import org.springframework.data.jpa.domain.Specification;
+import org.springframework.util.CollectionUtils;
 
-@Configuration
-public class DynamicSearchAutoConfiguration {
+import java.util.List;
 
-    @Bean
-    @ConditionalOnMissingBean
-    public SpecificationBuilder<?> specificationBuilder() {
-        return new SpecificationBuilder<>();
+public class SpecBuilder<T> implements ConditionalBuilder<Specification<T>> {
+
+    @Override
+    public Specification<T> build(List<Criteria> criteriaList) {
+        if (CollectionUtils.isEmpty(criteriaList)) {
+            return Specification.anyOf();
+        }
+
+        Specification<T> result = Specification.where(newSpec(criteriaList.get(0)));
+        for (int idx = 1; idx < criteriaList.size(); idx++) {
+            Criteria criteria = criteriaList.get(idx);
+            result = criteria.isOr()
+                    ? Specification.where(result).or(newSpec(criteria))
+                    : Specification.where(result).and(
+                    newSpec(criteria));
+        }
+        return result;
+    }
+
+    private DynamicSpecification<T> newSpec(Criteria criteria) {
+        return new DynamicSpecification<>(criteria);
     }
 }

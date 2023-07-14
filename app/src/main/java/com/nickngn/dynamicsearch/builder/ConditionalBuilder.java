@@ -28,7 +28,7 @@ import com.nickngn.dynamicsearch.Criteria;
 
 import java.util.List;
 
-public sealed interface ConditionalBuilder<T> permits SpecificationBuilder, SqlBuilder {
+public interface ConditionalBuilder<T> {
 
     T build(List<Criteria> criteriaList);
 }

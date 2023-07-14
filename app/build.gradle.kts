@@ -1,6 +1,5 @@
 plugins {
 	`java-library`
-	`maven-publish`
 	id("org.springframework.boot") version "3.1.1"
 	id("io.spring.dependency-management") version "1.1.0"
 	id("org.sonarqube") version "4.2.1.3168"
@@ -8,17 +7,13 @@ plugins {
 
 sonar {
 	properties {
-		property("sonar.projectKey"), "nickngn_spring-boot-starter-dynamic-search"
-		property("sonar.organization"), "afarmerlearntocode"
-		property("sonar.host"), "https://sonarcloud.io"
+		property("sonar.projectKey")
+		property("sonar.organization")
+		property("sonar.host")
 	}
 }
 group = "com.nickngn"
 version = "0.0.1-SNAPSHOT"
-
-java {
-	sourceCompatibility = JavaVersion.VERSION_17
-}
 
 configurations {
 	compileOnly {

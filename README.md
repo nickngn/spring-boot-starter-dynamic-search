@@ -34,7 +34,7 @@ Service:
 public class SearchService {
 
     private final EntityRepository entityRepository;
-    private final SpecificationBuilder<SearchEntity> builder;
+    private final SpecBuilder<SearchEntity> builder = SpecBuilders.getInstance(SearchEntity.class);
 
     public Page<SearchEntity> search(SearchCriteria searchCriteria) {
         Specification<SearchEntity> spec = builder.build(searchCriteria.getCriteria());
