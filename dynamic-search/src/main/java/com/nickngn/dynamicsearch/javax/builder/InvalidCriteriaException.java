@@ -15,29 +15,17 @@
  *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NON INFRINGEMENT. IN NO EVENT SHALL THE
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
  * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
 
-package com.nickngn.dynamicsearch.builder;
+package com.nickngn.dynamicsearch.javax.builder;
 
-import java.util.concurrent.ConcurrentHashMap;
+import lombok.experimental.StandardException;
 
-public final class SpecBuilders {
-
-    private static final ConcurrentHashMap<Class<?>, SpecBuilder<?>> BUILDER_MAP = new ConcurrentHashMap<>();
-
-    @SuppressWarnings("unchecked")
-    public static <T> SpecBuilder<T> getInstance(Class<T> klass) {
-        if (BUILDER_MAP.containsKey(klass)) {
-            return (SpecBuilder<T>) BUILDER_MAP.get(klass);
-        }
-        SpecBuilder<T> specBuilder = new SpecBuilder<>();
-        BUILDER_MAP.put(klass, specBuilder);
-        return specBuilder;
-    }
-
+@StandardException
+public class InvalidCriteriaException extends RuntimeException{
 }

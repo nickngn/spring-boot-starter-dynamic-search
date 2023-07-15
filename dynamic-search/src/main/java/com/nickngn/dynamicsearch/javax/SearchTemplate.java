@@ -22,17 +22,51 @@
  * SOFTWARE.
  */
 
-package com.nickngn.dynamicsearch;
+package com.nickngn.dynamicsearch.javax;
 
-public final class BaseSearchCriteria extends SearchTemplate {
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.Getter;
+import lombok.Setter;
+import org.springframework.data.domain.Pageable;
 
-    @Override
-    public Class<?> getReferenceClass() {
-        return null;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.function.Supplier;
+
+@Getter
+@Setter
+public abstract class SearchTemplate {
+
+    protected List<Criteria> criteria;
+    protected Pageable pageable;
+
+    @JsonIgnore
+    public abstract Class<?> getReferenceClass();
+    @JsonIgnore
+    public abstract ConditionList customValidate(ConditionList conditionList);
+
+    @Getter
+    @Setter
+    public static class CustomCondition {
+        private Supplier<Boolean> condition;
+        private String errorMessage;
     }
 
-    @Override
-    public ConditionList customValidate(ConditionList conditionList) {
-        return null;
+    @Getter
+    @Setter
+    public static class ConditionList {
+        private List<CustomCondition> conditions = new ArrayList<>();
+
+        public ConditionList add(CustomCondition condition) {
+            conditions.add(condition);
+            return this;
+        }
+    }
+
+    public Pageable getPageable() {
+        if (pageable == null) {
+            return Pageable.unpaged();
+        }
+        return pageable;
     }
 }

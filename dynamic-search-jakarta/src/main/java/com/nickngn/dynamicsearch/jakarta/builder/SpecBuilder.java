@@ -22,9 +22,9 @@
  * SOFTWARE.
  */
 
-package com.nickngn.dynamicsearch.builder;
+package com.nickngn.dynamicsearch.jakarta.builder;
 
-import com.nickngn.dynamicsearch.Criteria;
+import com.nickngn.dynamicsearch.jakarta.Criteria;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.util.CollectionUtils;
 

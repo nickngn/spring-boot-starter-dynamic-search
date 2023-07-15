@@ -15,20 +15,34 @@
  *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NON INFRINGEMENT. IN NO EVENT SHALL THE
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
  * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
 
-package com.nickngn.dynamicsearch.builder;
+package com.nickngn.dynamicsearch.javax.builder;
 
-import com.nickngn.dynamicsearch.Criteria;
+import com.nickngn.dynamicsearch.javax.Criteria;
+import org.springframework.util.CollectionUtils;
 
 import java.util.List;
 
-public interface ConditionalBuilder<T> {
+public final class SqlBuilder implements ConditionalBuilder<String> {
 
-    T build(List<Criteria> criteriaList);
+    @Override
+    public String build(List<Criteria> criteriaList) {
+        if(CollectionUtils.isEmpty(criteriaList)){
+            return "WHERE 1=1";
+        }
+
+        StringBuilder result = new StringBuilder("WHERE 1=1 ");
+        PlainSqlSpec expression;
+        for (Criteria criteria: criteriaList) {
+            expression = new PlainSqlSpec(criteria);
+            result.append(expression.toCondition());
+        }
+        return result.toString();
+    }
 }

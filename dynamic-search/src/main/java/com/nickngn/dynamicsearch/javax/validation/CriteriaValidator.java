@@ -15,31 +15,30 @@
  *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NON INFRINGEMENT. IN NO EVENT SHALL THE
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
  * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
 
-package com.nickngn.dynamicsearch.validation;
+package com.nickngn.dynamicsearch.javax.validation;
 
-import com.nickngn.dynamicsearch.Criteria;
-import com.nickngn.dynamicsearch.SearchTemplate;
-import jakarta.validation.ConstraintValidator;
-import jakarta.validation.ConstraintValidatorContext;
-import jakarta.validation.ConstraintViolation;
-import jakarta.validation.Validation;
+import com.nickngn.dynamicsearch.javax.SearchTemplate;
+import com.nickngn.dynamicsearch.javax.Criteria;
+
+import javax.validation.*;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Stream;
 
-public class Validator implements ConstraintValidator<ValidatedCriteria, SearchTemplate> {
+public class CriteriaValidator implements ConstraintValidator<ValidatedCriteria, SearchTemplate> {
 
-    private final jakarta.validation.Validator validator = Validation.buildDefaultValidatorFactory().getValidator();
+    private final Validator validator = Validation.buildDefaultValidatorFactory().getValidator();
 
     @Override
     public boolean isValid(SearchTemplate template, ConstraintValidatorContext context) {
@@ -57,11 +56,11 @@ public class Validator implements ConstraintValidator<ValidatedCriteria, SearchT
     }
 
     private static List<String> customValidate(SearchTemplate template) {
-        List<String> errMsgs = new ArrayList<>();
-        List<SearchTemplate.CustomCondition> conditions = template.customValidate(new SearchTemplate.ConditionList())
-                .getConditions();
+        SearchTemplate.ConditionList conditionList = template.customValidate(new SearchTemplate.ConditionList());
+        if (conditionList == null) return Collections.emptyList();
 
-        conditions.forEach(condition -> {
+        List<String> errMsgs = new ArrayList<>();
+        conditionList.getConditions().forEach(condition -> {
             if (condition.getCondition().get()) {
                 errMsgs.add(condition.getErrorMessage());
             }
@@ -71,18 +70,17 @@ public class Validator implements ConstraintValidator<ValidatedCriteria, SearchT
 
 
     public List<String> validateSyntax(SearchTemplate template) {
-        List<String> errMsgs = new ArrayList<>();
         Class<?> refClass = template.getReferenceClass();
-
+        if (refClass == null) return Collections.emptyList();
 
         List<String> fields = Stream.of(refClass.getDeclaredFields()).map(Field::getName).toList();
-        Set<? extends ConstraintViolation<?>> violations;
+        List<String> errMsgs = new ArrayList<>();
         for (Criteria criteria: template.getCriteria()) {
             if (!fields.contains(criteria.key())) {
                 errMsgs.add(String.format("Field '%s' isn't allowed searchable key", criteria.key()));
                 continue;
             }
-            violations = validator.validateValue(refClass, criteria.key(), criteria);
+            Set<? extends ConstraintViolation<?>> violations = validator.validateValue(refClass, criteria.key(), criteria);
             if (!violations.isEmpty()) {
                 List<String> msgs = violations.stream().map(ConstraintViolation::getMessage).toList();
                 errMsgs.addAll(msgs);
