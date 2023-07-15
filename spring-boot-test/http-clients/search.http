@@ -1,0 +1,27 @@
+### Search with id > 50
+POST http://localhost:8080/search
+Content-Type: application/json
+
+{
+  "criteria": [
+    {
+      "key": "id",
+      "operation": "gt",
+      "value": 50
+    }
+  ]
+}
+
+### Search with name start with 'a'
+POST http://localhost:8080/search
+Content-Type: application/json
+
+{
+  "criteria": [
+    {
+      "key": "name",
+      "operation": "bw",
+      "value": "A"
+    }
+  ]
+}
