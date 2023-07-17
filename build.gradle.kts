@@ -10,8 +10,8 @@ sonar {
 	}
 }
 
-group = "com.nickngn.spring-boot-starter-dynamic-search"
-version = "0.1.0"
+group = "io.github.nickngn"
+version = "0.1.0-SNAPSHOT"
 
 repositories {
 	mavenLocal()
