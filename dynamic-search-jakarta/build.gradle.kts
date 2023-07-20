@@ -7,6 +7,9 @@ plugins {
 
 apply(plugin = "io.spring.dependency-management")
 
+group = "io.github.nickngn"
+version = "0.1.0-SNAPSHOT"
+
 tasks.bootJar {
 	enabled = false
 }
@@ -45,9 +48,7 @@ java {
 publishing {
 	publications {
 		create<MavenPublication>("maven") {
-			groupId = "io.github.nickngn"
 			artifactId = "spring-boot-starter-dynamic-search-jakarta"
-			version = "0.1.0-SNAPSHOT"
 			from(components["java"])
 			versionMapping {
 				usage("java-api") {
@@ -60,7 +61,11 @@ publishing {
 			pom {
 				name.set("Spring Boot Starter Dynamic Search")
 				description.set("Additional module for dynamic search with Spring Data JPA")
-				url.set("http://www.example.com/library")
+				url.set("https://github.com/nickngn/spring-boot-starter-dynamic-search")
+				properties.set(mapOf(
+						"myProp" to "value",
+						"prop.with.dots" to "anotherValue"
+				))
 				licenses {
 					license {
 						name.set("The Apache License, Version 2.0")
@@ -84,15 +89,21 @@ publishing {
 		}
 		repositories {
 			maven {
-				val releasesRepoUrl = uri("https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/")
-				val snapshotsRepoUrl = uri("https://s01.oss.sonatype.org/content/repositories/snapshots/")
-				url = if (version.toString().endsWith("SNAPSHOT")) snapshotsRepoUrl else releasesRepoUrl
+				val releasesRepoUrl = "https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/"
+				val snapshotsRepoUrl = "https://s01.oss.sonatype.org/content/repositories/snapshots/"
+				url = uri(if (version.toString().endsWith("SNAPSHOT")) snapshotsRepoUrl else releasesRepoUrl)
+
+				credentials {
+					username = project.property("ossrhUsername").toString()
+					password = project.property("ossrhPassword").toString()
+				}
 			}
 		}
 	}
 }
 
 signing {
+	useGpgCmd()
 	sign(publishing.publications["maven"])
 }
 
