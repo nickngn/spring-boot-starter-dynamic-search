@@ -11,7 +11,7 @@ sonar {
 }
 
 group = "io.github.nickngn"
-version = "0.1.0-SNAPSHOT"
+version = "0.1.0"
 
 repositories {
 	mavenLocal()
