@@ -15,7 +15,7 @@
  *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * FITNESS FOR A PARTICULAR PURPOSE AND NON INFRINGEMENT. IN NO EVENT SHALL THE
  * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
@@ -26,10 +26,7 @@ package io.github.nickngn.dynamicsearch.jakarta.validation;
 
 import io.github.nickngn.dynamicsearch.jakarta.Criteria;
 import io.github.nickngn.dynamicsearch.jakarta.SearchTemplate;
-import jakarta.validation.ConstraintValidator;
-import jakarta.validation.ConstraintValidatorContext;
-import jakarta.validation.ConstraintViolation;
-import jakarta.validation.Validation;
+import jakarta.validation.*;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
@@ -38,9 +35,13 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Stream;
 
-public class Validator implements ConstraintValidator<ValidatedCriteria, SearchTemplate> {
+/**
+ * Processor for validating syntax configured by {@link SearchTemplate#getReferenceClass()}
+ * and custom validation configured by {@link SearchTemplate#customValidate(SearchTemplate.ConditionList)}
+ */
+public class CriteriaValidator implements ConstraintValidator<ValidatedCriteria, SearchTemplate> {
 
-    private final jakarta.validation.Validator validator = Validation.buildDefaultValidatorFactory().getValidator();
+    private static final Validator validator = Validation.buildDefaultValidatorFactory().getValidator();
 
     @Override
     public boolean isValid(SearchTemplate template, ConstraintValidatorContext context) {
@@ -71,7 +72,7 @@ public class Validator implements ConstraintValidator<ValidatedCriteria, SearchT
     }
 
 
-    public List<String> validateSyntax(SearchTemplate template) {
+    private static List<String> validateSyntax(SearchTemplate template) {
         Class<?> refClass = template.getReferenceClass();
         if (refClass == null) return Collections.emptyList();
 

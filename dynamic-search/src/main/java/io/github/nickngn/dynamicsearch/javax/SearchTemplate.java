@@ -15,7 +15,7 @@
  *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * FITNESS FOR A PARTICULAR PURPOSE AND NON INFRINGEMENT. IN NO EVENT SHALL THE
  * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
@@ -33,15 +33,34 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Supplier;
 
+/**
+ * Criteria template includes comprehensive content for dynamic searching
+ */
 @Getter
 @Setter
 public abstract class SearchTemplate {
 
+    /**
+     * List of specified condition on list of criteria
+     */
     protected List<Criteria> criteria;
+
+    /**
+     * Options to retrieve the search result if there are so many
+     */
     protected Pageable pageable;
 
+    /**
+     * Referred class with its fields and validation annotations to validate criteria keys with values
+     */
     @JsonIgnore
     public abstract Class<?> getReferenceClass();
+
+    /**
+     * List of custom conditions for validation
+     * @param conditionList initiator for adding custom conditions
+     * @return list of conditions
+     */
     @JsonIgnore
     public abstract ConditionList customValidate(ConditionList conditionList);
 
@@ -65,7 +84,7 @@ public abstract class SearchTemplate {
 
     public Pageable getPageable() {
         if (pageable == null) {
-            return Pageable.unpaged();
+            pageable = Pageable.unpaged();
         }
         return pageable;
     }

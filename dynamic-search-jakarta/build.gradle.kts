@@ -8,7 +8,7 @@ plugins {
 apply(plugin = "io.spring.dependency-management")
 
 group = "io.github.nickngn"
-version = "0.1.0-SNAPSHOT"
+version = "0.1.0"
 
 tasks.bootJar {
 	enabled = false
