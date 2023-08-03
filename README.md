@@ -1,8 +1,7 @@
 # Spring Boot Starter Dynamic Search
 
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=nickngn_spring-boot-starter-dynamic-search&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=nickngn_spring-boot-starter-dynamic-search)
-[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=nickngn_spring-boot-starter-dynamic-search&metric=coverage)](https://sonarcloud.io/summary/new_code?id=nickngn_spring-boot-starter-dynamic-search)
+[![javadoc](https://javadoc.io/badge2/io.github.nickngn/spring-boot-starter-dynamic-search/javadoc.svg)](https://javadoc.io/doc/io.github.nickngn/spring-boot-starter-dynamic-search)
 
 ## What is this?
 
@@ -60,3 +59,22 @@ That's it! Everything is on your table.
 
 - Validate syntax for key/values using Jakarta/Javax annotations
 - Generate SQL conditions in WHERE clause.
+
+### Installation:
+
+Maven:
+
+```xml
+<dependency>
+    <groupId>io.github.nickngn</groupId>
+    <artifactId>spring-boot-starter-dynamic-search</artifactId>
+    <version>0.1.0</version>
+</dependency>
+```
+
+Gradle:
+
+```groovy
+implementation group: 'io.github.nickngn', name: 'spring-boot-starter-dynamic-search', version: '0.1.0'
+```
+

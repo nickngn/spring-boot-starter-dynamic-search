@@ -25,7 +25,6 @@
 package io.github.nickngn.dynamicsearch.javax.builder;
 
 import io.github.nickngn.dynamicsearch.javax.Criteria;
-import org.springframework.boot.json.GsonJsonParser;
 
 import java.util.List;
 
@@ -33,8 +32,6 @@ import java.util.List;
  * Convert {@link Criteria} content to a WHERE clause condition
  */
 public class PlainSqlSpec {
-
-    private static final GsonJsonParser GSON = new GsonJsonParser();
 
     private final Criteria criteria;
 

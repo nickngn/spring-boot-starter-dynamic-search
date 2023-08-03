@@ -41,7 +41,7 @@ import java.util.stream.Stream;
  */
 public class CriteriaValidator implements ConstraintValidator<ValidatedCriteria, SearchTemplate> {
 
-    private final Validator validator = Validation.buildDefaultValidatorFactory().getValidator();
+    private static final Validator VALIDATOR = Validation.buildDefaultValidatorFactory().getValidator();
 
     @Override
     public boolean isValid(SearchTemplate template, ConstraintValidatorContext context) {
@@ -83,7 +83,7 @@ public class CriteriaValidator implements ConstraintValidator<ValidatedCriteria,
                 errMsgs.add(String.format("Field '%s' isn't allowed searchable key", criteria.key()));
                 continue;
             }
-            Set<? extends ConstraintViolation<?>> violations = validator.validateValue(refClass, criteria.key(), criteria);
+            Set<? extends ConstraintViolation<?>> violations = VALIDATOR.validateValue(refClass, criteria.key(), criteria);
             if (!violations.isEmpty()) {
                 List<String> msgs = violations.stream().map(ConstraintViolation::getMessage).toList();
                 errMsgs.addAll(msgs);
