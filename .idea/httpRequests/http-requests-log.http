@@ -1,0 +1,737 @@
+POST http://localhost:8080/search
+Content-Type: application/json
+Content-Length: 23
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.7)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "criteria": [
+  ]
+}
+
+<> 2023-08-08T234857.400.txt
+
+###
+
+POST http://localhost:8080/search
+Content-Type: application/json
+Content-Length: 23
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.7)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "criteria": [
+  ]
+}
+
+<> 2023-08-08T234137.400.json
+
+###
+
+POST http://localhost:8080/search
+Content-Type: application/json
+Content-Length: 23
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.7)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "criteria": [
+  ]
+}
+
+<> 2023-08-08T233723.400.json
+
+###
+
+POST http://localhost:8080/search
+Content-Type: application/json
+Content-Length: 23
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.7)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "criteria": [
+  ]
+}
+
+<> 2023-08-08T233648.200.json
+
+###
+
+POST http://localhost:8080/search
+Content-Type: application/json
+Content-Length: 23
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.7)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "criteria": [
+  ]
+}
+
+<> 2023-08-08T233546.200.json
+
+###
+
+POST http://localhost:8080/search
+Content-Type: application/json
+Content-Length: 107
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.7)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "criteria": [
+    {
+      "key": "id",
+      "operation": "GREATER_THAN",
+      "value": 50
+    }
+  ]
+}
+
+<> 2023-08-08T233429.200.json
+
+###
+
+POST http://localhost:8080/search
+Content-Type: application/json
+Content-Length: 108
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.7)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "criteria": [
+    {
+      "key": "id",
+      "operation": "GREATER_THAN",
+      "value": 500
+    }
+  ]
+}
+
+<> 2023-08-08T233411.200.json
+
+###
+
+POST http://localhost:8080/search
+Content-Type: application/json
+Content-Length: 99
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.7)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "criteria": [
+    {
+      "key": "id",
+      "operation": "gt",
+      "value": 5000
+    }
+  ]
+}
+
+<> 2023-08-03T225800.500.json
+
+###
+
+POST http://localhost:8080/search
+Content-Type: application/json
+Content-Length: 97
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.7)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "criteria": [
+    {
+      "key": "id",
+      "operation": "gt",
+      "value": 50
+    }
+  ]
+}
+
+<> 2023-08-03T225619.500.json
+
+###
+
+POST http://localhost:8080/search
+Content-Type: application/json
+Content-Length: 97
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.7)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "criteria": [
+    {
+      "key": "id",
+      "operation": "gt",
+      "value": 50
+    }
+  ]
+}
+
+<> 2023-08-03T224722.500.json
+
+###
+
+POST http://localhost:8080/search
+Content-Type: application/json
+Content-Length: 97
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.7)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "criteria": [
+    {
+      "key": "id",
+      "operation": "gt",
+      "value": 50
+    }
+  ]
+}
+
+<> 2023-08-03T224443.500.json
+
+###
+
+POST http://localhost:8080/search
+Content-Type: application/json
+Content-Length: 97
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.7)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "criteria": [
+    {
+      "key": "id",
+      "operation": "gt",
+      "value": 50
+    }
+  ]
+}
+
+<> 2023-08-03T224425.200.json
+
+###
+
+POST http://localhost:8080/search
+Content-Type: application/json
+Content-Length: 97
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.7)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "criteria": [
+    {
+      "key": "id",
+      "operation": "gt",
+      "value": 50
+    }
+  ]
+}
+
+<> 2023-08-03T224325.200.json
+
+###
+
+POST http://localhost:8080/search
+Content-Type: application/json
+Content-Length: 23
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.7)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "criteria": [
+  ]
+}
+
+<> 2023-08-03T224230.200.json
+
+###
+
+POST http://localhost:8080/search
+Content-Type: application/json
+Content-Length: 97
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.7)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "criteria": [
+    {
+      "key": "id",
+      "operation": "gt",
+      "value": 50
+    }
+  ]
+}
+
+<> 2023-08-03T224119.200.json
+
+###
+
+POST http://localhost:8080/search
+Content-Type: application/json
+Content-Length: 100
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "criteria": [
+    {
+      "key": "name",
+      "operation": "bw",
+      "value": "A"
+    }
+  ]
+}
+
+<> 2023-07-22T112238.200.json
+
+###
+
+POST http://localhost:8080/search
+Content-Type: application/json
+Content-Length: 97
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "criteria": [
+    {
+      "key": "id",
+      "operation": "gt",
+      "value": 50
+    }
+  ]
+}
+
+<> 2023-07-22T112234.200.json
+
+###
+
+POST http://localhost:8080/search
+Content-Type: application/json
+Content-Length: 100
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "criteria": [
+    {
+      "key": "name",
+      "operation": "bw",
+      "value": "A"
+    }
+  ]
+}
+
+<> 2023-07-22T111838.200.json
+
+###
+
+POST http://localhost:8080/search
+Content-Type: application/json
+Content-Length: 97
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "criteria": [
+    {
+      "key": "id",
+      "operation": "gt",
+      "value": 50
+    }
+  ]
+}
+
+<> 2023-07-22T111835.200.json
+
+###
+
+POST http://localhost:8080/search
+Content-Type: application/json
+Content-Length: 100
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "criteria": [
+    {
+      "key": "name",
+      "operation": "bw",
+      "value": "A"
+    }
+  ]
+}
+
+<> 2023-07-22T100854.200.json
+
+###
+
+POST http://localhost:8080/search
+Content-Type: application/json
+Content-Length: 100
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "criteria": [
+    {
+      "key": "name",
+      "operation": "bw",
+      "value": "A"
+    }
+  ]
+}
+
+<> 2023-07-15T165128.200.json
+
+###
+
+POST http://localhost:8080/search
+Content-Type: application/json
+Content-Length: 100
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "criteria": [
+    {
+      "key": "name",
+      "operation": "bw",
+      "value": "A"
+    }
+  ]
+}
+
+<> 2023-07-14T221950.200.json
+
+###
+
+POST http://localhost:8080/search
+Content-Type: application/json
+Content-Length: 100
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "criteria": [
+    {
+      "key": "name",
+      "operation": "bw",
+      "value": "A"
+    }
+  ]
+}
+
+<> 2023-07-14T215342.200.json
+
+###
+
+POST http://localhost:8080/search
+Content-Type: application/json
+Content-Length: 100
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "criteria": [
+    {
+      "key": "name",
+      "operation": "bw",
+      "value": "A"
+    }
+  ]
+}
+
+<> 2023-07-14T213534.200.json
+
+###
+
+POST http://localhost:8080/search
+Content-Type: application/json
+Content-Length: 100
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "criteria": [
+    {
+      "key": "name",
+      "operation": "bw",
+      "value": "A"
+    }
+  ]
+}
+
+<> 2023-07-13T223539.200.json
+
+###
+
+POST http://localhost:8080/search
+Content-Type: application/json
+Content-Length: 97
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "criteria": [
+    {
+      "key": "id",
+      "operation": "gt",
+      "value": 50
+    }
+  ]
+}
+
+<> 2023-07-13T223156.200.json
+
+###
+
+POST http://localhost:8080/search
+Content-Type: application/json
+Content-Length: 97
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "criteria": [
+    {
+      "key": "id",
+      "operation": "gt",
+      "value": 50
+    }
+  ]
+}
+
+<> 2023-07-13T222902.200.json
+
+###
+
+POST http://localhost:8080/search
+Content-Type: application/json
+Content-Length: 97
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "criteria": [
+    {
+      "key": "id",
+      "operation": "gt",
+      "value": 50
+    }
+  ]
+}
+
+<> 2023-07-13T222741.200.json
+
+###
+
+POST http://localhost:8080/search
+Content-Type: application/json
+Content-Length: 97
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "criteria": [
+    {
+      "key": "id",
+      "operation": "gt",
+      "value": 50
+    }
+  ]
+}
+
+<> 2023-07-13T222602.200.json
+
+###
+
+POST http://localhost:8080/search
+Content-Type: application/json
+Content-Length: 97
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "criteria": [
+    {
+      "key": "id",
+      "operation": "gt",
+      "value": 50
+    }
+  ]
+}
+
+<> 2023-07-13T222459.200.json
+
+###
+
+POST http://localhost:8080/search
+Content-Type: application/json
+Content-Length: 23
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "criteria": [
+  ]
+}
+
+<> 2023-07-13T204500.200.json
+
+###
+
+POST http://localhost:8080/search
+Content-Type: application/json
+Content-Length: 23
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "criteria": [
+  ]
+}
+
+<> 2023-07-13T204447.200.json
+
+###
+
+POST http://localhost:8080/search
+Content-Type: application/json
+Content-Length: 97
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "criteria": [
+    {
+      "key": "id",
+      "operation": "gt",
+      "value": 50
+    }
+  ]
+}
+
+<> 2023-07-13T204310.200.json
+
+###
+
+POST http://localhost:8080/search
+Content-Type: application/json
+Content-Length: 97
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "criteria": [
+    {
+      "key": "id",
+      "operation": "gt",
+      "value": 50
+    }
+  ]
+}
+
+<> 2023-07-13T203853.500.json
+
+###
+
+POST http://localhost:8080/search
+Content-Type: application/json
+Content-Length: 97
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "criteria": [
+    {
+      "key": "id",
+      "operation": "gt",
+      "value": 50
+    }
+  ]
+}
+
+<> 2023-07-12T213354.500.json
+
+###
+
+POST http://localhost:8080/search
+Content-Type: application/json
+Content-Length: 97
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "criteria": [
+    {
+      "key": "id",
+      "operation": "gt",
+      "value": 50
+    }
+  ]
+}
+
+<> 2023-07-12T212529.400.json
+
+###
+
+POST http://localhost:8080/search
+Content-Type: application/json
+Content-Length: 97
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "criteria": [
+    {
+      "key": "id",
+      "operation": "gt",
+      "value": 50
+    }
+  ]
+}
+
+<> 2023-07-12T212115.400.json
+
+###
+
