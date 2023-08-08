@@ -26,8 +26,10 @@ package io.github.nickngn.dynamicsearch.springboottest.searchexample;
 
 
 import io.github.nickngn.dynamicsearch.jakarta.SearchTemplate;
+import io.github.nickngn.dynamicsearch.jakarta.validation.ValidatedCriteria;
 import io.github.nickngn.dynamicsearch.springboottest.searchexample.validation.SearchModel;
 
+@ValidatedCriteria
 public class SearchCriteria extends SearchTemplate {
 
     @Override

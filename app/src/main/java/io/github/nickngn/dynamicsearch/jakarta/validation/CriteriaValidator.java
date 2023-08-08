@@ -63,7 +63,7 @@ public class CriteriaValidator implements ConstraintValidator<ValidatedCriteria,
 
         List<String> errMsgs = new ArrayList<>();
         conditionList.getConditions().forEach(condition -> {
-            if (condition.getCondition().get()) {
+            if (Boolean.TRUE.equals(condition.getCondition().get())) {
                 errMsgs.add(condition.getErrorMessage());
             }
         });

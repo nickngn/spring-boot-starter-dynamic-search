@@ -24,6 +24,7 @@
 
 package io.github.nickngn.dynamicsearch.springboottest.searchexample;
 
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
@@ -38,7 +39,7 @@ public class SearchController {
     private final SearchService searchService;
 
     @PostMapping("/search")
-    public ResponseEntity<Page<SearchEntity>> search(@RequestBody SearchCriteria criteria) {
+    public ResponseEntity<Page<SearchEntity>> search(@RequestBody @Valid SearchCriteria criteria) {
         return ResponseEntity.ok(searchService.search(criteria));
     }
 }

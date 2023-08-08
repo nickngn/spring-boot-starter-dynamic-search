@@ -1,5 +1,85 @@
 POST http://localhost:8080/search
 Content-Type: application/json
+Content-Length: 23
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.7)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "criteria": [
+  ]
+}
+
+<> 2023-08-08T234857.400.txt
+
+###
+
+POST http://localhost:8080/search
+Content-Type: application/json
+Content-Length: 23
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.7)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "criteria": [
+  ]
+}
+
+<> 2023-08-08T234137.400.json
+
+###
+
+POST http://localhost:8080/search
+Content-Type: application/json
+Content-Length: 23
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.7)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "criteria": [
+  ]
+}
+
+<> 2023-08-08T233723.400.json
+
+###
+
+POST http://localhost:8080/search
+Content-Type: application/json
+Content-Length: 23
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.7)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "criteria": [
+  ]
+}
+
+<> 2023-08-08T233648.200.json
+
+###
+
+POST http://localhost:8080/search
+Content-Type: application/json
+Content-Length: 23
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.7)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "criteria": [
+  ]
+}
+
+<> 2023-08-08T233546.200.json
+
+###
+
+POST http://localhost:8080/search
+Content-Type: application/json
 Content-Length: 107
 Connection: Keep-Alive
 User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.7)

@@ -12,6 +12,14 @@ Content-Type: application/json
   ]
 }
 
+### Search with empty criteria > should return error
+POST http://localhost:8080/search
+Content-Type: application/json
+
+{
+  "criteria": []
+}
+
 ### Search with name start with 'a'
 POST http://localhost:8080/search
 Content-Type: application/json
