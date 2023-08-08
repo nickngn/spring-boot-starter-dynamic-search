@@ -55,11 +55,6 @@ public interface EntityRepository extends JpaRepository<SearchEntity, Long>,
 
 That's it! Everything is on your table.
 
-### What else this can do?
-
-- Validate syntax for key/values using Jakarta/Javax annotations
-- Generate SQL conditions in WHERE clause.
-
 ### Installation:
 
 Maven:
@@ -78,3 +73,8 @@ Gradle:
 implementation group: 'io.github.nickngn', name: 'spring-boot-starter-dynamic-search', version: '0.1.0'
 ```
 
+### Validate syntax for key/values using Jakarta/Javax annotations
+
+
+
+- Generate SQL conditions in WHERE clause.

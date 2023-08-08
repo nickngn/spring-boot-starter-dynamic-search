@@ -6,7 +6,7 @@ Content-Type: application/json
   "criteria": [
     {
       "key": "id",
-      "operation": "gt",
+      "operation": "GREATER_THAN",
       "value": 50
     }
   ]
@@ -20,7 +20,7 @@ Content-Type: application/json
   "criteria": [
     {
       "key": "name",
-      "operation": "bw",
+      "operation": "BEGINS_WITH",
       "value": "A"
     }
   ]

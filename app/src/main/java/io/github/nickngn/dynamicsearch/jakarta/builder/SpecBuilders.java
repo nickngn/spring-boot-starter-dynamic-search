@@ -22,26 +22,28 @@
  * SOFTWARE.
  */
 
-package io.github.nickngn.dynamicsearch.springboottest.searchexample;
+package io.github.nickngn.dynamicsearch.jakarta.builder;
 
+import lombok.experimental.UtilityClass;
 
-import io.github.nickngn.dynamicsearch.jakarta.SearchTemplate;
-import io.github.nickngn.dynamicsearch.springboottest.searchexample.validation.SearchModel;
+import java.util.concurrent.ConcurrentHashMap;
 
-public class SearchCriteria extends SearchTemplate {
+/**
+ * Fly-weight holder for {@link SpecBuilder} to reuse builder per Entity types
+ */
+@UtilityClass
+public final class SpecBuilders {
 
-    @Override
-    public Class<?> getReferenceClass() {
-        /// Return null if there are no constraints to fields
-        return SearchModel.class;
+    private static final ConcurrentHashMap<Class<?>, SpecBuilder<?>> BUILDER_MAP = new ConcurrentHashMap<>();
+
+    @SuppressWarnings("unchecked")
+    public static <T> SpecBuilder<T> getInstance(Class<T> klass) {
+        if (BUILDER_MAP.containsKey(klass)) {
+            return (SpecBuilder<T>) BUILDER_MAP.get(klass);
+        }
+        SpecBuilder<T> specBuilder = new SpecBuilder<>();
+        BUILDER_MAP.put(klass, specBuilder);
+        return specBuilder;
     }
 
-    @Override
-    public ConditionList customValidate(ConditionList conditionList) {
-        CustomCondition condition = new CustomCondition();
-        condition.setCondition(() -> getCriteria().isEmpty());
-        condition.setErrorMessage("Criteria list for this search require specific condition");
-        conditionList.add(condition);
-        return conditionList;
-    }
 }

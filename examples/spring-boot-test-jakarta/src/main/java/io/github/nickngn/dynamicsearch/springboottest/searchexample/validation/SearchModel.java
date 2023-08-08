@@ -15,33 +15,28 @@
  *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NON INFRINGEMENT. IN NO EVENT SHALL THE
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
  * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
 
-package io.github.nickngn.dynamicsearch.springboottest.searchexample;
+package io.github.nickngn.dynamicsearch.springboottest.searchexample.validation;
 
+import io.github.nickngn.dynamicsearch.jakarta.validation.ValidatedCriteria;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
+import lombok.Getter;
+import lombok.Setter;
 
-import io.github.nickngn.dynamicsearch.jakarta.SearchTemplate;
-import io.github.nickngn.dynamicsearch.springboottest.searchexample.validation.SearchModel;
+@Getter
+@Setter
+@ValidatedCriteria
+public class SearchModel {
 
-public class SearchCriteria extends SearchTemplate {
-
-    @Override
-    public Class<?> getReferenceClass() {
-        /// Return null if there are no constraints to fields
-        return SearchModel.class;
-    }
-
-    @Override
-    public ConditionList customValidate(ConditionList conditionList) {
-        CustomCondition condition = new CustomCondition();
-        condition.setCondition(() -> getCriteria().isEmpty());
-        condition.setErrorMessage("Criteria list for this search require specific condition");
-        conditionList.add(condition);
-        return conditionList;
-    }
+    @Size(min = 4, max = 8, message = "Id size should be between 4-8 numbers")
+    private Long id;
+    @NotBlank
+    private String name;
 }
