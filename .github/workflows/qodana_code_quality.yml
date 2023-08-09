@@ -5,8 +5,6 @@ on:
   push:
     branches:
       - main
-      - master
-      - features/adjust_examples
 
 jobs:
   qodana:
@@ -17,5 +15,7 @@ jobs:
           fetch-depth: 0
       - name: 'Qodana Scan'
         uses: JetBrains/qodana-action@v2023.2
+        with:
+          projectJDK: 17
         env:
           QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
